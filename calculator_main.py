@@ -2,7 +2,7 @@ from calculator_math_engine import AdvancedMathEngine
 from history_manager import HistoryManager
 
 def main():
-    print("--- Advanced App Calculator (With History & Inheritance) ---")
+    print("--- Calculator ---")
     
     engine = AdvancedMathEngine()
     history = HistoryManager()
@@ -15,16 +15,21 @@ def main():
         print("4. Division (/)")
         print("5. Exponentiation/Power (^)")
         print("6. Modulo/Remainder (%)")
+        print("7. Square Root (√)")
+        print("8. Factorial (!)")
         
-        choice = input("Enter your choice (1-6): ").strip()
+        choice = input("Enter your choice (1-8): ").strip()
         
-        if choice not in ('1', '2', '3', '4', '5', '6'):
-            print("Error: Invalid choice. Please select a number between 1 and 6.")
+        if choice not in ('1', '2', '3', '4', '5', '6', '7', '8'):
+            print("Error: Invalid choice. Please select a number between 1 and 8.")
             continue
             
         try:
-            num1 = float(input("Enter the first number: "))
-            num2 = float(input("Enter the second number: "))
+            num1 = float(input("Enter the number: "))
+            
+            num2 = 0.0
+            if choice in ('1', '2', '3', '4', '5', '6'):
+                num2 = float(input("Enter the second number: "))
             
             result = engine.calculate(num1, num2, choice)
             print(f"\nResult: {result}")
@@ -32,8 +37,8 @@ def main():
             history.save_calculation(num1, num2, choice, result)
             print("(Calculation saved to history log)")
             
-        except ValueError:
-            print("\nError: Invalid input. Please enter valid numbers.")
+        except ValueError as e:
+            print(f"\nError: {e}")
         except ZeroDivisionError as e:
             print(f"\nError: {e}")
             
