@@ -1,10 +1,10 @@
-from calculator_math_engine import MathEngine
+from calculator_math_engine import AdvancedMathEngine
 from history_manager import HistoryManager
 
 def main():
-    print("--- Simple App Calculator (With History Log) ---")
+    print("--- Advanced App Calculator (With History & Inheritance) ---")
     
-    engine = MathEngine()
+    engine = AdvancedMathEngine()
     history = HistoryManager()
     
     while True:
@@ -13,11 +13,13 @@ def main():
         print("2. Subtraction (-)")
         print("3. Multiplication (*)")
         print("4. Division (/)")
+        print("5. Exponentiation/Power (^)")
+        print("6. Modulo/Remainder (%)")
         
-        choice = input("Enter your choice (1/2/3/4): ").strip()
+        choice = input("Enter your choice (1-6): ").strip()
         
-        if choice not in ('1', '2', '3', '4'):
-            print("Error: Invalid choice. Please select 1, 2, 3, or 4.")
+        if choice not in ('1', '2', '3', '4', '5', '6'):
+            print("Error: Invalid choice. Please select a number between 1 and 6.")
             continue
             
         try:

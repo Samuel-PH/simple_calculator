@@ -12,7 +12,7 @@ class HistoryManager:
                 file.write("=== CALCULATOR HISTORY LOG ===\n\n")
 
     def save_calculation(self, num1, num2, operation, result):
-        symbols = {'1': '+', '2': '-', '3': '*', '4': '/'}
+        symbols = {'1': '+', '2': '-', '3': '*', '4': '/', '5': '^', '6': '%'}
         sym = symbols.get(operation, '?')
         
         timestamp = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
