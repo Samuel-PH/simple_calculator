@@ -1,9 +1,11 @@
 from calculator_math_engine import MathEngine
+from history_manager import HistoryManager
 
 def main():
-    print("--- Simple App Calculator ---")
+    print("--- Simple App Calculator (With History Log) ---")
     
     engine = MathEngine()
+    history = HistoryManager()
     
     while True:
         print("\nPlease choose a math operation:")
@@ -24,6 +26,9 @@ def main():
             
             result = engine.calculate(num1, num2, choice)
             print(f"\nResult: {result}")
+            
+            history.save_calculation(num1, num2, choice, result)
+            print("(Calculation saved to history log)")
             
         except ValueError:
             print("\nError: Invalid input. Please enter valid numbers.")
