@@ -30,7 +30,7 @@ class Division(Subtraction):
                 return float(quotient)
         return num1 / num2
     
-    class AdvancedMathEngine:
+class AdvancedMathEngine:
     def __init__(self):
         self.adder = Addition()
         self.subtractor = Subtraction()
